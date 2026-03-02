@@ -15780,25 +15780,26 @@ TkSuQmCC" alt="Sebastian" />
           <div class="form-label">Get Instant Access</div>
           <div class="form-title">Send Me the Free Guide Now</div>
 
-          <div class="field">
+          <!-- Our styled inputs -->
+            <div class="field">
               <div class="field-icon">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
-              <input type="text" id="fname" placeholder="Your first name" required />
+              <input type="text" id="fname" placeholder="Your first name" />
             </div>
             <div class="field">
               <div class="field-icon">
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
-              <input type="email" id="femail" placeholder="Your best email address" required />
+              <input type="email" id="femail" placeholder="Your best email address" />
             </div>
-            <button type="button" class="btn-submit" id="submitBtn" onclick="submitToSysteme()">
+            <button type="button" class="btn-submit" id="submitBtn" onclick="handleSubmit()">
               Send Me the Free Guide <span class="btn-arrow">→</span>
             </button>
-            <div id="form-msg" style="font-size:13px;text-align:center;margin-top:10px;min-height:18px;color:var(--gold);"></div>
+            <div id="form-msg" style="font-size:13px;text-align:center;margin-top:10px;min-height:18px;"></div>
 
           <script>
-          function submitToSysteme() {
+          async function handleSubmit() {
             var name = document.getElementById("fname").value.trim();
             var email = document.getElementById("femail").value.trim();
             var msg = document.getElementById("form-msg");
@@ -15807,27 +15808,33 @@ TkSuQmCC" alt="Sebastian" />
             if (!name) { msg.style.color="#c0392b"; msg.textContent = "Please enter your first name."; return; }
             if (!email || !email.includes("@")) { msg.style.color="#c0392b"; msg.textContent = "Please enter a valid email address."; return; }
 
-            btn.textContent = "Sending...";
+            btn.innerHTML = "Sending…";
             btn.disabled = true;
-            msg.style.color = "var(--gold)";
             msg.textContent = "";
 
-            var formData = new FormData();
-            formData.append("contact[first_name]", name);
-            formData.append("contact[email]", email);
+            try {
+              const res = await fetch("https://scintillating-cupcake-ae4fed.netlify.app/.netlify/functions/subscribe", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ firstName: name, email: email })
+              });
 
-            fetch("https://systeme.io/embedded/38531050/subscription", {
-              method: "POST",
-              body: formData,
-              mode: "no-cors"
-            })
-            .then(function() {
-              window.location.href = "https://affiliateproteam.github.io/work-from-home-success/thank-you-page.html";
-            })
-            .catch(function() {
-              // no-cors will always "succeed" — redirect anyway
-              window.location.href = "https://affiliateproteam.github.io/work-from-home-success/thank-you-page.html";
-            });
+              if (res.ok) {
+                window.location.href = "https://affiliateproteam.github.io/wfh-funnel/thank-you-page.html";
+              } else {
+                const data = await res.json();
+                msg.style.color = "#c0392b";
+                msg.textContent = "Something went wrong. Please try again.";
+                btn.innerHTML = "Send Me the Free Guide →";
+                btn.disabled = false;
+                console.error("Error:", data);
+              }
+            } catch(err) {
+              msg.style.color = "#c0392b";
+              msg.textContent = "Connection error. Please try again.";
+              btn.innerHTML = "Send Me the Free Guide →";
+              btn.disabled = false;
+            }
           }
           </script>
 
