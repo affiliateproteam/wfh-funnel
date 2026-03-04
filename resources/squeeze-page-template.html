@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Guide — Get Instant Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0c;
+    --cream: #faf7f2;
+    --warm: #f5ede0;
+    --gold: #c8933a;
+    --gold-light: #e8b96a;
+    --accent: #1a3a2a;
+    --muted: #7a7068;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e0d4;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .page {
+    max-width: 660px;
+    width: 100%;
+    background: var(--cream);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.13);
+    overflow: hidden;
+    animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--accent);
+    padding: 64px 60px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: rgba(200,147,58,0.09);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: -30px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+
+  .cover-tag {
+    display: inline-block;
+    background: rgba(200,147,58,0.22);
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.4s 0.15s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.4s 0.25s ease both;
+  }
+
+  .hero h1 span { color: var(--gold-light); }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.7;
+    max-width: 460px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 36px;
+    animation: fadeIn 0.4s 0.35s ease both;
+  }
+
+  /* Bullets */
+  .bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.4s 0.42s ease both;
+  }
+
+  .bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.55;
+  }
+
+  .bullets li::before {
+    content: '→';
+    color: var(--gold-light);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── FORM AREA ── */
+  .form-area {
+    background: var(--warm);
+    padding: 44px 60px 40px;
+  }
+
+  .form-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 10px;
+    animation: fadeIn 0.4s 0.5s ease both;
+  }
+
+  .form-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 24px;
+    animation: fadeIn 0.4s 0.55s ease both;
+  }
+
+  /* ── OPT-IN FORM PLACEHOLDER ── */
+  /* 
+    ═══════════════════════════════════════════════════
+    PASTE YOUR OPT-IN FORM CODE IN THE BLOCK BELOW.
+    Delete the placeholder div and insert your form.
+    ═══════════════════════════════════════════════════
+  */
+  .form-placeholder {
+    background: rgba(200,147,58,0.08);
+    padding: 32px 24px;
+    text-align: center;
+    animation: fadeIn 0.4s 0.6s ease both;
+  }
+
+  .form-placeholder p {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .form-placeholder strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+
+  .privacy-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 16px;
+    text-align: center;
+    animation: fadeIn 0.4s 0.65s ease both;
+  }
+
+  @media (max-width: 600px) {
+    .hero, .form-area { padding-left: 28px; padding-right: 28px; }
+    .hero h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="cover-tag">🎁 Free Platform · No Credit Card</div>
+
+    <h1>Build Your Email List<br>With <span>100% Free Traffic</span><br>Starting Today</h1>
+
+    <p class="hero-sub">
+      LeadsLeap gives you everything you need in one place — squeeze page builder, link tracker, ad network, and subscriber list. Free to join, free to use.
+    </p>
+
+    <ul class="bullets">
+      <li>Earn real ad credits daily just by being active for 20–30 minutes</li>
+      <li>Build your squeeze page and email list without paying for any tools</li>
+      <li>Track every link so you always know which traffic sources are working</li>
+      <li>Get visitors from a community of active marketers — every single day</li>
+    </ul>
+  </div>
+
+  <!-- FORM AREA -->
+  <div class="form-area">
+    <div class="form-eyebrow">Free · Instant Access</div>
+    <div class="form-heading">Enter your details and get instant access:</div>
+
+    <!--
+      ════════════════════════════════════════
+      PASTE YOUR OPT-IN FORM CODE HERE
+      Replace the placeholder div below with
+      your own LeadsLeap form code.
+      ════════════════════════════════════════
+    -->
+    <div class="form-placeholder">
+      <strong>↓ Your opt-in form goes here ↓</strong>
+      <p>Delete this box and paste your LeadsLeap opt-in form code here.</p>
+    </div>
+
+    <p class="privacy-note">🔒 100% free. No spam. Unsubscribe any time.</p>
+  </div>
+
+</div>
+</body>
+</html>
