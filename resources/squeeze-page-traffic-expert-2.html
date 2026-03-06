@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Step-By-Step Setup Guide – AffiliateProTeam by Sebastian</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0f0e0c; --cream: #faf7f2; --warm: #f5ede0;
+    --gold: #c8933a; --gold-light: #e8b96a; --accent: #1a3a2a;
+    --muted: #7a7068; --light-border: #e8e0d4;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #e8e0d4; color: var(--ink); min-height: 100vh; }
+  .page { max-width: 680px; margin: 40px auto; background: var(--cream); box-shadow: 0 20px 80px rgba(0,0,0,0.15); }
+
+  .hero {
+    background: var(--accent); padding: 60px 60px 52px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: rgba(200,147,58,0.1); pointer-events: none;
+  }
+  .cover-tag {
+    display: inline-block; background: rgba(200,147,58,0.25); color: var(--gold-light);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+    padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(200,147,58,0.35);
+    margin-bottom: 24px; position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900;
+    color: #fff; line-height: 1.15; margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .bullets { list-style: none; margin-bottom: 36px; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+  .bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.5; }
+  .bullets li::before { content: '→'; color: var(--gold-light); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+
+  .form-wrap { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+  input[type="text"], input[type="email"] {
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400;
+    padding: 14px 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.09); color: #fff; outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  input::placeholder { color: rgba(255,255,255,0.32); }
+  input:focus { border-color: var(--gold-light); background: rgba(255,255,255,0.13); }
+  .cta-btn {
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600;
+    padding: 16px 24px; border-radius: 8px; border: none; cursor: pointer;
+    background: var(--gold); color: #fff; transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .privacy-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; position: relative; z-index: 1; }
+
+  .below { padding: 48px 60px; border-bottom: 1px solid var(--light-border); }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+  .below h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+  .below p { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 14px; }
+  .below p strong { color: var(--ink); font-weight: 500; }
+  .promise-box { background: var(--warm); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin-top: 20px; }
+  .promise-box p { margin: 0; font-size: 14px; color: var(--ink); font-style: italic; font-weight: 400; }
+  .author-box { display: flex; align-items: center; gap: 16px; background: var(--accent); border-radius: 12px; padding: 20px 24px; margin-top: 28px; }
+  .author-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .author-bio { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; font-weight: 300; }
+
+  .back-cover { background: var(--ink); padding: 28px 60px; text-align: center; }
+  .back-cover p { font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.8; }
+  .back-cover a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .hero, .below, .back-cover { padding-left: 28px; padding-right: 28px; }
+    .hero h1 { font-size: 2rem; }
+  }
+  .hero-inner { display: flex; align-items: right; gap: 32px; position: relative; z-index: 1; }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-image { flex-shrink: 0; width: 175px; display: flex; align-items: flex-start; justify-content: center; }
+  .hero-image img { width: 250px; height: auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25)); }
+  @media (max-width: 640px) { .hero-inner { flex-direction: column-reverse; gap: 16px; } .hero-image { width: 120px; } .hero-image img { width: 120px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    
+    <div class="hero-inner">
+      <div class="hero-image">
+          <img src="./hero2.png" alt="Hero">
+        </div>
+      <div class="hero-text">
+        <div class="cover-tag">🎁 Free Guide · Instant Access</div>
+        <h1>Build Your List - <br><span>Daily Income</span></h1>
+        <form class="form-wrap" method="post" action="https://sendsteed.com/subscribe/">
+          <input type="hidden" name="lllid" value="123355">
+          <input type="hidden" name="lluid" value="affiliateproteam">
+          <input type="hidden" name="redirect" value="https://llpgpro.com/nfch7hvt/thankyou">
+          <input type="hidden" name="source" value="">
+          <input type="text" name="n123355" placeholder="Your first name" required />
+          <input type="text" name="e123355" placeholder="Your best email address" required />
+          <button type="submit" class="cta-btn">Send Me the Free Guide →</button>
+        </form>
+        <p class="privacy-note">🔒 Free. No spam. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="below">
+    <div class="section-eyebrow">Who This Is For</div>
+    <h2>Perfect if you've been stuck before you even started</h2>
+    <p>Most beginners know they need a squeeze page and an email list — but they get lost the moment they try to actually set it all up. Which tool? Which settings? What do you write in the first email?</p>
+    <p><strong>This guide removes all the guesswork.</strong> It walks you through every single step — from creating your free LeadsLeap account, to building your first squeeze page, collecting your first subscribers, and sending your first real visitors — all using free tools.</p>
+    <div class="promise-box">
+      <p>"I built this guide because it's exactly what I wished existed when I started. No tech overwhelm, no expensive software — just a clear path from zero to your first live funnel."</p>
+    </div>
+    <div class="author-box">
+      <img src="./profile.png" alt="Sebastian" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-light);flex-shrink:0;">
+      <div>
+        <div class="author-name">Sebastian · AffiliateProTeam</div>
+        <div class="author-bio">Traffic expert. List builder. Sharing the free tools and systems that actually grow an affiliate income from scratch.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-cover">
+    <p>
+      © 2025 · AffiliateProTeam by Sebastian · affiliateproteam.com<br>
+      <a href="#">Privacy Policy</a> · <a href="#">Unsubscribe</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
